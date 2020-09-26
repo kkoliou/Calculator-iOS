@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB39EE66251FC64C00E28120 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE65251FC64C00E28120 /* ContainerViewController.swift */; };
 		BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE67251FCA3600E28120 /* CalculatorViewController.swift */; };
 		BB39EE6A251FCA3600E28120 /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */; };
 		BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */; };
@@ -40,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB39EE65251FC64C00E28120 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BB39EE67251FCA3600E28120 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				BBACC60E24E9803F00F6245C /* AppDelegate.swift */,
 				BBACC61024E9803F00F6245C /* SceneDelegate.swift */,
 				BBACC61224E9803F00F6245C /* ViewController.swift */,
-				BB39EE65251FC64C00E28120 /* ContainerViewController.swift */,
 				BBACC61424E9803F00F6245C /* Main.storyboard */,
 				BBACC61724E9804000F6245C /* Assets.xcassets */,
 				BBACC61924E9804000F6245C /* LaunchScreen.storyboard */,
@@ -288,7 +285,6 @@
 				BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */,
 				BBACC61324E9803F00F6245C /* ViewController.swift in Sources */,
 				BBACC60F24E9803F00F6245C /* AppDelegate.swift in Sources */,
-				BB39EE66251FC64C00E28120 /* ContainerViewController.swift in Sources */,
 				BBACC61124E9803F00F6245C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
