@@ -13,6 +13,7 @@
                 <outlet property="addButton" destination="61c-XU-r50" id="FlW-YR-LkU"/>
                 <outlet property="cButton" destination="79D-vO-zbe" id="e3U-JA-XkY"/>
                 <outlet property="delButton" destination="P4I-XM-5KH" id="fwM-qL-tHM"/>
+                <outlet property="displayLabel" destination="Ce6-bs-dEt" id="k9y-zv-eDQ"/>
                 <outlet property="divButton" destination="tpb-eQ-pWb" id="WxG-ak-bql"/>
                 <outlet property="dotButton" destination="QCe-91-7OP" id="dJt-cC-aT0"/>
                 <outlet property="eightButton" destination="Mkl-Gh-Oxr" id="hWJ-0W-OOh"/>
@@ -40,19 +41,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdk-AH-lbd">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9X-lc-Zey">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce6-bs-dEt">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="C9X-lc-Zey" secondAttribute="bottom" id="0C1-gS-6AE"/>
-                        <constraint firstAttribute="trailing" secondItem="C9X-lc-Zey" secondAttribute="trailing" id="ZMT-tj-6LM"/>
-                        <constraint firstItem="C9X-lc-Zey" firstAttribute="top" secondItem="kdk-AH-lbd" secondAttribute="top" id="ao8-N4-VyO"/>
-                        <constraint firstItem="C9X-lc-Zey" firstAttribute="leading" secondItem="kdk-AH-lbd" secondAttribute="leading" id="t5e-Zg-6p0"/>
+                        <constraint firstItem="Ce6-bs-dEt" firstAttribute="top" secondItem="kdk-AH-lbd" secondAttribute="top" id="55i-0n-VRu"/>
+                        <constraint firstItem="Ce6-bs-dEt" firstAttribute="leading" secondItem="kdk-AH-lbd" secondAttribute="leading" id="GpV-2t-epE"/>
+                        <constraint firstAttribute="trailing" secondItem="Ce6-bs-dEt" secondAttribute="trailing" id="LZ1-Tx-cZe"/>
+                        <constraint firstAttribute="bottom" secondItem="Ce6-bs-dEt" secondAttribute="bottom" id="vzt-IN-GcT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qeb-Nl-YHy">
@@ -68,6 +69,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="C"/>
+                                            <connections>
+                                                <action selector="didTapOnClearAll:" destination="-1" eventType="touchUpInside" id="tFn-o0-3Lo"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-XM-5KH">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
@@ -75,16 +79,25 @@
                                             <state key="normal" image="delete.left.fill" catalog="system">
                                                 <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didTapOnDelete:" destination="-1" eventType="touchUpInside" id="gRI-Yp-pao"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4q-9y-uHQ">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="%"/>
+                                            <connections>
+                                                <action selector="didTapOnPercent:" destination="-1" eventType="touchUpInside" id="nqF-kQ-WFU"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-eQ-pWb">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="÷"/>
+                                            <connections>
+                                                <action selector="didTapOnDiv:" destination="-1" eventType="touchUpInside" id="MdD-ZJ-m89"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -94,22 +107,40 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-XK-Ltw">
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="7"/>
+                                            <state key="normal" title="7">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnSeven:" destination="-1" eventType="touchUpInside" id="IWd-ek-iAV"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkl-Gh-Oxr">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="8"/>
+                                            <state key="normal" title="8">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnEight:" destination="-1" eventType="touchUpInside" id="kte-NZ-0vY"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssi-MF-SKR">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="9"/>
+                                            <state key="normal" title="9">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnNine:" destination="-1" eventType="touchUpInside" id="70v-au-yCH"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-39-m17">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="×"/>
+                                            <connections>
+                                                <action selector="didTapOnMult:" destination="-1" eventType="touchUpInside" id="hWD-0n-d7P"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -119,22 +150,40 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPP-D4-KxE">
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="4"/>
+                                            <state key="normal" title="4">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnFour:" destination="-1" eventType="touchUpInside" id="Wj5-Ea-I1p"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjS-iG-5g2">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="5"/>
+                                            <state key="normal" title="5">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnFive:" destination="-1" eventType="touchUpInside" id="sfz-Bx-gfA"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1d-0T-pBT">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="6"/>
+                                            <state key="normal" title="6">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnSix:" destination="-1" eventType="touchUpInside" id="smK-UW-hjC"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75R-GK-cwX">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="−"/>
+                                            <connections>
+                                                <action selector="didTapOnSub:" destination="-1" eventType="touchUpInside" id="dex-oh-EmY"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -144,22 +193,40 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh0-7m-UxA">
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="1"/>
+                                            <state key="normal" title="1">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnOne:" destination="-1" eventType="touchUpInside" id="Qk1-SD-qGx"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOT-ER-amy">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="2"/>
+                                            <state key="normal" title="2">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnTwo:" destination="-1" eventType="touchUpInside" id="SvO-2e-SLk"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-ML-ZUt">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="3"/>
+                                            <state key="normal" title="3">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnThree:" destination="-1" eventType="touchUpInside" id="Wel-fy-aBO"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61c-XU-r50">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="didTapOnAdd:" destination="-1" eventType="touchUpInside" id="tfO-FU-DkM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -172,17 +239,30 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJV-Yq-VUx">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="0"/>
+                                            <state key="normal" title="0">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnZero:" destination="-1" eventType="touchUpInside" id="5Ih-99-quT"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-91-7OP">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" title="."/>
+                                            <state key="normal" title=".">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapOnDot:" destination="-1" eventType="touchUpInside" id="00L-u8-Cnc"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60B-cF-gap">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="="/>
+                                            <connections>
+                                                <action selector="didTapOnResult:" destination="-1" eventType="touchUpInside" id="go5-ma-eHq"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
