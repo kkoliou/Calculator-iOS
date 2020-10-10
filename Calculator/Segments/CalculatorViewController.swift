@@ -32,7 +32,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var resultButton: UIButton!
     
     //display view label
-    @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var inputLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +49,22 @@ class CalculatorViewController: UIViewController {
     }
     
     private func setupView() {
-        displayLabel.text = "545445"
-        
+        inputLabel.text = "0"
     }
     
     @IBAction func didTapOnClearAll(_ sender: Any) {
-        
+        inputLabel.text = "0"
     }
     
     @IBAction func didTapOnDelete(_ sender: Any) {
+        guard var input = inputLabel.text else { return }
         
+        if input.count > 1 {
+            input = String(input.dropLast())
+            inputLabel.text = input
+        } else {
+            inputLabel.text? = "0"
+        }
     }
     
     @IBAction func didTapOnPercent(_ sender: Any) {
@@ -90,42 +96,139 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func didTapOnZero(_ sender: Any) {
+        guard var input = inputLabel.text else { return }
         
+        if hasMaxInputCount() {
+            return
+        }
+        
+        if input != "0" && input.count >= 1 {
+            input += "0"
+            inputLabel.text = input
+        } else if input.count == 0 {
+            inputLabel.text = "0"
+        }
     }
     
     @IBAction func didTapOnOne(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "1"
     }
     
     @IBAction func didTapOnTwo(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "2"
     }
     
     @IBAction func didTapOnThree(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "3"
     }
     
     @IBAction func didTapOnFour(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "4"
     }
     
     @IBAction func didTapOnFive(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "5"
     }
     
     @IBAction func didTapOnSix(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "6"
     }
     
     @IBAction func didTapOnSeven(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "7"
     }
     
-    
     @IBAction func didTapOnEight(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "8"
     }
     
     @IBAction func didTapOnNine(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
         
+        var str = startsWithZero()
+        str = hasZeroAfterOp(str)
+        inputLabel.text = str + "9"
+    }
+    
+    private func startsWithZero() -> String {  //if input is 0, pressing 1, 0 will be replaced by 1
+        guard var input = inputLabel.text else { return "" }
+        
+        if input.count == 1 {
+            if input[input.index(input.startIndex, offsetBy: 0)] == "0" {
+                input = ""
+            }
+        }
+        return input
+    }
+    
+    private func hasZeroAfterOp(_ str: String) -> String {  //avoid input like 9/003
+        var result = str
+        if str.count > 1 {
+            let op = str[str.index(str.endIndex, offsetBy: -2)]
+            
+            if op == "+" || op == "×" || op == "−" || op == "÷" {
+                if str[str.index(str.endIndex, offsetBy: -1)] == "0" {
+                    let index = str.index(str.endIndex, offsetBy: -1)
+                    result = String(str[..<index])
+                }
+            }
+        }
+        return result
+    }
+    
+    private func hasMaxInputCount() -> Bool {
+        guard let input = inputLabel.text else { return true }
+        
+        return !(input.count <= 25)
     }
 }
