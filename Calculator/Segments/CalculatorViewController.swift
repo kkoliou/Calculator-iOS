@@ -145,7 +145,27 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func didTapOnDot(_ sender: Any) {
+        guard var input = inputLabel.text else { return }
         
+        if !input[input.index(input.endIndex, offsetBy: -1)].isNumber {  //if previous char is operator, then dot won't be added
+            return
+        }
+        
+        var dotFound = false
+        for char in input.reversed() {
+            if char ==  "+" || char == "×" || char == "−" || char == "÷" {
+                break
+            }
+            if char == "." {
+                dotFound = true
+                break
+            }
+        }
+        
+        if !dotFound {
+            input += "."
+            inputLabel.text = input
+        }
     }
     
     @IBAction func didTapOnZero(_ sender: Any) {

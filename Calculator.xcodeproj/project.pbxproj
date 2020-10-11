@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		BB39EE6A251FCA3600E28120 /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */; };
 		BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */; };
 		BB39EE6F251FCA7400E28120 /* CurrencyConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE6D251FCA7400E28120 /* CurrencyConverterViewController.xib */; };
-		BB4F8BDD253315E5005B3C34 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4F8BDC253315E5005B3C34 /* StringExtensions.swift */; };
 		BBACC60F24E9803F00F6245C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC60E24E9803F00F6245C /* AppDelegate.swift */; };
 		BBACC61124E9803F00F6245C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC61024E9803F00F6245C /* SceneDelegate.swift */; };
 		BBACC61324E9803F00F6245C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC61224E9803F00F6245C /* BaseViewController.swift */; };
@@ -55,7 +54,6 @@
 		BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		BB39EE6D251FCA7400E28120 /* CurrencyConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyConverterViewController.xib; sourceTree = "<group>"; };
-		BB4F8BDC253315E5005B3C34 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		BBACC60B24E9803F00F6245C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBACC60E24E9803F00F6245C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBACC61024E9803F00F6245C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				4510FAE96C5AD63578F5A6DB /* Pods-CalculatorTests.debug.xcconfig */,
 				AE5A9EE6E09A3693DBE38347 /* Pods-CalculatorTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,14 +131,6 @@
 				BB39EE6D251FCA7400E28120 /* CurrencyConverterViewController.xib */,
 			);
 			path = Segments;
-			sourceTree = "<group>";
-		};
-		BB4F8BDB253315C5005B3C34 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BB4F8BDC253315E5005B3C34 /* StringExtensions.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		BBACC60224E9803F00F6245C = {
@@ -169,7 +158,6 @@
 		BBACC60D24E9803F00F6245C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				BB4F8BDB253315C5005B3C34 /* Helpers */,
 				BB39EE6B251FCA4400E28120 /* Segments */,
 				BBACC60E24E9803F00F6245C /* AppDelegate.swift */,
 				BBACC61024E9803F00F6245C /* SceneDelegate.swift */,
@@ -441,7 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB4F8BDD253315E5005B3C34 /* StringExtensions.swift in Sources */,
 				BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */,
 				BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */,
 				BBACC61324E9803F00F6245C /* BaseViewController.swift in Sources */,
