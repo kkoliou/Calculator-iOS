@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MathExpression
 
 class CalculatorViewController: UIViewController {
 
@@ -68,7 +69,25 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func didTapOnPercent(_ sender: Any) {
+        guard let str = inputLabel.text else { return }
         
+        if str.count == 1 { //if input == "+" etc
+            if !str[str.index(str.startIndex, offsetBy: 0)].isNumber {
+                inputLabel.text = "0"
+                return
+            }
+        }
+        
+        if str.contains("+") || str.contains("×") || str.contains("−") || str.contains("÷") {
+            return
+        }
+        
+        if str.count > 0 {
+            if str != "0" {
+                let num = Double(str)! / 100.0
+                inputLabel.text = "\(num)"
+            }
+        }
     }
     
     @IBAction func didTapOnDiv(_ sender: Any) {
