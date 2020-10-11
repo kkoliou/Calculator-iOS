@@ -117,7 +117,11 @@ class CalculatorViewController: UIViewController {
         
         var outputString = String(output)
         if output.truncatingRemainder(dividingBy: 1) == 0 {
-            outputString = String(Int(output))
+            if output > Double(Int.max) {
+                outputString = String(output)
+            } else {
+                outputString = String(Int(output))
+            }
         }
         inputLabel.text = outputString
     }
