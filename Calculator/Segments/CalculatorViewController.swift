@@ -11,28 +11,6 @@ import MathExpression
 
 class CalculatorViewController: UIViewController {
 
-    //numpad buttons
-    @IBOutlet private weak var cButton: UIButton!
-    @IBOutlet private weak var delButton: UIButton!
-    @IBOutlet private weak var percentButton: UIButton!
-    @IBOutlet private weak var divButton: UIButton!
-    @IBOutlet private weak var sevenButton: UIButton!
-    @IBOutlet private weak var eightButton: UIButton!
-    @IBOutlet private weak var nineButton: UIButton!
-    @IBOutlet private weak var multButton: UIButton!
-    @IBOutlet private weak var fourButton: UIButton!
-    @IBOutlet private weak var fiveButton: UIButton!
-    @IBOutlet private weak var sixButton: UIButton!
-    @IBOutlet private weak var subButton: UIButton!
-    @IBOutlet private weak var oneButton: UIButton!
-    @IBOutlet private weak var twoButton: UIButton!
-    @IBOutlet private weak var threeButton: UIButton!
-    @IBOutlet private weak var addButton: UIButton!
-    @IBOutlet private weak var zeroButton: UIButton!
-    @IBOutlet private weak var dotButton: UIButton!
-    @IBOutlet private weak var resultButton: UIButton!
-    
-    //display view label
     @IBOutlet weak var inputLabel: UILabel!
     
     override func viewDidLoad() {
@@ -124,14 +102,14 @@ class CalculatorViewController: UIViewController {
         let result = expression?.evaluate()
         
         guard let output = result else {
-            let alert = UIAlertController(title: "Error", message: "This expression cannot be evaluated!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "This expression cannot be evaluated.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             self.present(alert, animated: true)
             return
         }
         
         if String(output) == "inf" {
-            let alert = UIAlertController(title: "Error", message: "Division by zero cannot be evaluated", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Division by zero cannot be evaluated.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             self.present(alert, animated: true)
             return

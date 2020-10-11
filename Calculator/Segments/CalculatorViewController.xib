@@ -13,27 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="Calculator" customModuleProvider="target">
             <connections>
-                <outlet property="addButton" destination="61c-XU-r50" id="FlW-YR-LkU"/>
-                <outlet property="cButton" destination="79D-vO-zbe" id="e3U-JA-XkY"/>
-                <outlet property="delButton" destination="P4I-XM-5KH" id="fwM-qL-tHM"/>
-                <outlet property="divButton" destination="tpb-eQ-pWb" id="WxG-ak-bql"/>
-                <outlet property="dotButton" destination="QCe-91-7OP" id="dJt-cC-aT0"/>
-                <outlet property="eightButton" destination="Mkl-Gh-Oxr" id="hWJ-0W-OOh"/>
-                <outlet property="fiveButton" destination="YjS-iG-5g2" id="lTI-HX-3sQ"/>
-                <outlet property="fourButton" destination="HPP-D4-KxE" id="uDj-Jh-VIP"/>
                 <outlet property="inputLabel" destination="Ce6-bs-dEt" id="k9y-zv-eDQ"/>
-                <outlet property="multButton" destination="IYf-39-m17" id="cZg-o8-ES9"/>
-                <outlet property="nineButton" destination="ssi-MF-SKR" id="qpQ-c6-ciU"/>
-                <outlet property="oneButton" destination="Dh0-7m-UxA" id="e37-gQ-Cew"/>
-                <outlet property="percentButton" destination="t4q-9y-uHQ" id="OcM-55-sTa"/>
-                <outlet property="resultButton" destination="60B-cF-gap" id="rpS-WQ-jSG"/>
-                <outlet property="sevenButton" destination="VZY-XK-Ltw" id="8ac-Uf-Gks"/>
-                <outlet property="sixButton" destination="E1d-0T-pBT" id="tSZ-gB-K1I"/>
-                <outlet property="subButton" destination="75R-GK-cwX" id="Ou9-az-fp4"/>
-                <outlet property="threeButton" destination="aLR-ML-ZUt" id="DF2-ZM-Yao"/>
-                <outlet property="twoButton" destination="rOT-ER-amy" id="DwE-Od-uki"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="zeroButton" destination="wJV-Yq-VUx" id="aBg-1u-ZjO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
