@@ -12,25 +12,25 @@ import MathExpression
 class CalculatorViewController: UIViewController {
 
     //numpad buttons
-    @IBOutlet weak var cButton: UIButton!
-    @IBOutlet weak var delButton: UIButton!
-    @IBOutlet weak var percentButton: UIButton!
-    @IBOutlet weak var divButton: UIButton!
-    @IBOutlet weak var sevenButton: UIButton!
-    @IBOutlet weak var eightButton: UIButton!
-    @IBOutlet weak var nineButton: UIButton!
-    @IBOutlet weak var multButton: UIButton!
-    @IBOutlet weak var fourButton: UIButton!
-    @IBOutlet weak var fiveButton: UIButton!
-    @IBOutlet weak var sixButton: UIButton!
-    @IBOutlet weak var subButton: UIButton!
-    @IBOutlet weak var oneButton: UIButton!
-    @IBOutlet weak var twoButton: UIButton!
-    @IBOutlet weak var threeButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var zeroButton: UIButton!
-    @IBOutlet weak var dotButton: UIButton!
-    @IBOutlet weak var resultButton: UIButton!
+    @IBOutlet private weak var cButton: UIButton!
+    @IBOutlet private weak var delButton: UIButton!
+    @IBOutlet private weak var percentButton: UIButton!
+    @IBOutlet private weak var divButton: UIButton!
+    @IBOutlet private weak var sevenButton: UIButton!
+    @IBOutlet private weak var eightButton: UIButton!
+    @IBOutlet private weak var nineButton: UIButton!
+    @IBOutlet private weak var multButton: UIButton!
+    @IBOutlet private weak var fourButton: UIButton!
+    @IBOutlet private weak var fiveButton: UIButton!
+    @IBOutlet private weak var sixButton: UIButton!
+    @IBOutlet private weak var subButton: UIButton!
+    @IBOutlet private weak var oneButton: UIButton!
+    @IBOutlet private weak var twoButton: UIButton!
+    @IBOutlet private weak var threeButton: UIButton!
+    @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var zeroButton: UIButton!
+    @IBOutlet private weak var dotButton: UIButton!
+    @IBOutlet private weak var resultButton: UIButton!
     
     //display view label
     @IBOutlet weak var inputLabel: UILabel!
@@ -91,23 +91,57 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func didTapOnDiv(_ sender: Any) {
-        
+        operation(op: "÷")
     }
     
     @IBAction func didTapOnMult(_ sender: Any) {
-        
+        operation(op: "×")
     }
     
     @IBAction func didTapOnSub(_ sender: Any) {
-        
+        operation(op: "−")
     }
     
     @IBAction func didTapOnAdd(_ sender: Any) {
-        
+        operation(op: "+")
     }
     
     @IBAction func didTapOnResult(_ sender: Any) {
+        guard var input = inputLabel.text else { return }
         
+        if input.count != 0 {
+            input = input.replacingOccurrences(of: "÷", with: "/")
+            input = input.replacingOccurrences(of: "×", with: "*")
+            input = input.replacingOccurrences(of: "−", with: "-")
+        }
+        
+        if !input[input.index(input.endIndex, offsetBy: -1)].isNumber {
+            let index = input.index(input.endIndex, offsetBy: -1)
+            input = String(input[..<index])
+        }
+        
+        let expression = try? MathExpression(input)
+        let result = expression?.evaluate()
+        
+        guard let output = result else {
+            let alert = UIAlertController(title: "Error", message: "This expression cannot be evaluated!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if String(output) == "inf" {
+            let alert = UIAlertController(title: "Error", message: "Division by zero cannot be evaluated", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
+            return
+        }
+        
+        var outputString = String(output)
+        if output.truncatingRemainder(dividingBy: 1) == 0 {
+            outputString = String(Int(output))
+        }
+        inputLabel.text = outputString
     }
     
     @IBAction func didTapOnDot(_ sender: Any) {
@@ -249,5 +283,26 @@ class CalculatorViewController: UIViewController {
         guard let input = inputLabel.text else { return true }
         
         return !(input.count <= 25)
+    }
+    
+    private func operation(op: String) {
+        guard let str = inputLabel.text else { return }
+        
+        if str == "0" && op == "−" {
+            inputLabel.text = "−"
+            return
+        }
+        
+        if str.count > 0 {
+            let finalChar = str[str.index(str.endIndex, offsetBy: -1)]
+            
+            if finalChar == "+" || finalChar == "×" || finalChar == "−" || finalChar == "÷" {
+                let index = str.index(str.endIndex, offsetBy: -1)
+                let substring = String(str[..<index])
+                inputLabel.text = substring + op
+            } else {
+                inputLabel.text = str + op
+            }
+        }
     }
 }

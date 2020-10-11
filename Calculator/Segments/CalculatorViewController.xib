@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -69,7 +70,8 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79D-vO-zbe">
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943392839769" green="0.61649935233160624" blue="0.38997181032476652" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="C"/>
                                             <connections>
                                                 <action selector="didTapOnClearAll:" destination="-1" eventType="touchUpInside" id="tFn-o0-3Lo"/>
@@ -78,8 +80,10 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-XM-5KH">
                                             <rect key="frame" x="96" y="0.0" width="87.5" height="80"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                            <state key="normal" image="delete.left.fill" catalog="system">
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal">
                                                 <color key="titleColor" systemColor="systemBlueColor"/>
+                                                <imageReference key="image" image="delete.left.fill" catalog="system" symbolScale="large"/>
                                             </state>
                                             <connections>
                                                 <action selector="didTapOnDelete:" destination="-1" eventType="touchUpInside" id="gRI-Yp-pao"/>
@@ -87,7 +91,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4q-9y-uHQ">
                                             <rect key="frame" x="191.5" y="0.0" width="88" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="%"/>
                                             <connections>
                                                 <action selector="didTapOnPercent:" destination="-1" eventType="touchUpInside" id="nqF-kQ-WFU"/>
@@ -95,7 +100,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-eQ-pWb">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="÷"/>
                                             <connections>
                                                 <action selector="didTapOnDiv:" destination="-1" eventType="touchUpInside" id="MdD-ZJ-m89"/>
@@ -138,7 +144,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-39-m17">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="×"/>
                                             <connections>
                                                 <action selector="didTapOnMult:" destination="-1" eventType="touchUpInside" id="hWD-0n-d7P"/>
@@ -181,7 +188,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75R-GK-cwX">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="−"/>
                                             <connections>
                                                 <action selector="didTapOnSub:" destination="-1" eventType="touchUpInside" id="dex-oh-EmY"/>
@@ -224,7 +232,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61c-XU-r50">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="+"/>
                                             <connections>
                                                 <action selector="didTapOnAdd:" destination="-1" eventType="touchUpInside" id="tfO-FU-DkM"/>
@@ -260,7 +269,8 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60B-cF-gap">
                                             <rect key="frame" x="287.5" y="0.0" width="87.5" height="80"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="="/>
                                             <connections>
                                                 <action selector="didTapOnResult:" destination="-1" eventType="touchUpInside" id="go5-ma-eHq"/>
