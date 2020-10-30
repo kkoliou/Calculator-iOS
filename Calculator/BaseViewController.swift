@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+final class BaseViewController: UIViewController {
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     
     private let calculatorVC = CalculatorViewController()
     private let currencyConverterVC = CurrencyConverterViewController()
@@ -30,7 +30,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    @IBAction func didChangeSegmentControl(_ sender: UISegmentedControl) {
+    @IBAction private func didChangeSegmentControl(_ sender: UISegmentedControl) {
         updateView()
     }
     

@@ -14,6 +14,8 @@
 		BB39EE6A251FCA3600E28120 /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */; };
 		BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */; };
 		BB39EE6F251FCA7400E28120 /* CurrencyConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE6D251FCA7400E28120 /* CurrencyConverterViewController.xib */; };
+		BB4118D7254CA8B800C54924 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4118D6254CA8B800C54924 /* SpinnerView.swift */; };
+		BB4118DF254CA8CD00C54924 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4118DE254CA8CD00C54924 /* SpinnerView.xib */; };
 		BBACC60F24E9803F00F6245C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC60E24E9803F00F6245C /* AppDelegate.swift */; };
 		BBACC61124E9803F00F6245C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC61024E9803F00F6245C /* SceneDelegate.swift */; };
 		BBACC61324E9803F00F6245C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACC61224E9803F00F6245C /* BaseViewController.swift */; };
@@ -54,6 +56,8 @@
 		BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		BB39EE6D251FCA7400E28120 /* CurrencyConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyConverterViewController.xib; sourceTree = "<group>"; };
+		BB4118D6254CA8B800C54924 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		BB4118DE254CA8CD00C54924 /* SpinnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerView.xib; sourceTree = "<group>"; };
 		BBACC60B24E9803F00F6245C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBACC60E24E9803F00F6245C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBACC61024E9803F00F6245C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			path = Segments;
 			sourceTree = "<group>";
 		};
+		BB4118D5254CA87200C54924 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB4118D6254CA8B800C54924 /* SpinnerView.swift */,
+				BB4118DE254CA8CD00C54924 /* SpinnerView.xib */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		BBACC60224E9803F00F6245C = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +171,7 @@
 		BBACC60D24E9803F00F6245C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				BB4118D5254CA87200C54924 /* Custom Views */,
 				BB39EE6B251FCA4400E28120 /* Segments */,
 				BBACC60E24E9803F00F6245C /* AppDelegate.swift */,
 				BBACC61024E9803F00F6245C /* SceneDelegate.swift */,
@@ -301,6 +315,7 @@
 				BBACC61824E9804000F6245C /* Assets.xcassets in Resources */,
 				BB39EE6A251FCA3600E28120 /* CalculatorViewController.xib in Resources */,
 				BBACC61624E9803F00F6245C /* Main.storyboard in Resources */,
+				BB4118DF254CA8CD00C54924 /* SpinnerView.xib in Resources */,
 				BB39EE6F251FCA7400E28120 /* CurrencyConverterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +448,7 @@
 				BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */,
 				BBACC61324E9803F00F6245C /* BaseViewController.swift in Sources */,
 				BBACC60F24E9803F00F6245C /* AppDelegate.swift in Sources */,
+				BB4118D7254CA8B800C54924 /* SpinnerView.swift in Sources */,
 				BBACC61124E9803F00F6245C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

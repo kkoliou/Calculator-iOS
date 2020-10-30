@@ -9,9 +9,9 @@
 import UIKit
 import MathExpression
 
-class CalculatorViewController: UIViewController {
+final class CalculatorViewController: UIViewController {
 
-    @IBOutlet weak var inputLabel: UILabel!
+    @IBOutlet private weak var inputLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +19,15 @@ class CalculatorViewController: UIViewController {
         setupView()
     }
     
-    init() {
-        super.init(nibName: "CalculatorViewController", bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     private func setupView() {
         inputLabel.text = "0"
     }
     
-    @IBAction func didTapOnClearAll(_ sender: Any) {
+    @IBAction private func didTapOnClearAll(_ sender: Any) {
         inputLabel.text = "0"
     }
     
-    @IBAction func didTapOnDelete(_ sender: Any) {
+    @IBAction private func didTapOnDelete(_ sender: Any) {
         guard var input = inputLabel.text else { return }
         
         if input.count > 1 {
@@ -46,7 +38,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapOnPercent(_ sender: Any) {
+    @IBAction private func didTapOnPercent(_ sender: Any) {
         guard let str = inputLabel.text else { return }
         
         if str.count == 1 { //if input == "+" etc
@@ -68,23 +60,23 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapOnDiv(_ sender: Any) {
+    @IBAction private func didTapOnDiv(_ sender: Any) {
         operation(op: "÷")
     }
     
-    @IBAction func didTapOnMult(_ sender: Any) {
+    @IBAction private func didTapOnMult(_ sender: Any) {
         operation(op: "×")
     }
     
-    @IBAction func didTapOnSub(_ sender: Any) {
+    @IBAction private func didTapOnSub(_ sender: Any) {
         operation(op: "−")
     }
     
-    @IBAction func didTapOnAdd(_ sender: Any) {
+    @IBAction private func didTapOnAdd(_ sender: Any) {
         operation(op: "+")
     }
     
-    @IBAction func didTapOnResult(_ sender: Any) {
+    @IBAction private func didTapOnResult(_ sender: Any) {
         guard var input = inputLabel.text else { return }
         
         if input.count != 0 {
@@ -126,7 +118,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = outputString
     }
     
-    @IBAction func didTapOnDot(_ sender: Any) {
+    @IBAction private func didTapOnDot(_ sender: Any) {
         guard var input = inputLabel.text else { return }
         
         if !input[input.index(input.endIndex, offsetBy: -1)].isNumber {  //if previous char is operator, then dot won't be added
@@ -150,7 +142,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapOnZero(_ sender: Any) {
+    @IBAction private func didTapOnZero(_ sender: Any) {
         guard var input = inputLabel.text else { return }
         
         if hasMaxInputCount() {
@@ -165,7 +157,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapOnOne(_ sender: Any) {
+    @IBAction private func didTapOnOne(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -175,7 +167,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "1"
     }
     
-    @IBAction func didTapOnTwo(_ sender: Any) {
+    @IBAction private func didTapOnTwo(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -185,7 +177,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "2"
     }
     
-    @IBAction func didTapOnThree(_ sender: Any) {
+    @IBAction private func didTapOnThree(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -195,7 +187,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "3"
     }
     
-    @IBAction func didTapOnFour(_ sender: Any) {
+    @IBAction private func didTapOnFour(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -205,7 +197,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "4"
     }
     
-    @IBAction func didTapOnFive(_ sender: Any) {
+    @IBAction private func didTapOnFive(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -215,7 +207,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "5"
     }
     
-    @IBAction func didTapOnSix(_ sender: Any) {
+    @IBAction private func didTapOnSix(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -225,7 +217,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "6"
     }
     
-    @IBAction func didTapOnSeven(_ sender: Any) {
+    @IBAction private func didTapOnSeven(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -235,7 +227,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "7"
     }
     
-    @IBAction func didTapOnEight(_ sender: Any) {
+    @IBAction private func didTapOnEight(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
@@ -245,7 +237,7 @@ class CalculatorViewController: UIViewController {
         inputLabel.text = str + "8"
     }
     
-    @IBAction func didTapOnNine(_ sender: Any) {
+    @IBAction private func didTapOnNine(_ sender: Any) {
         if hasMaxInputCount() {
             return
         }
