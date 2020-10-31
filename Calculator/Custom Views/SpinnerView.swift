@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol SpinnerViewDelegate: class {
+    func didTapOnView()
+}
+
 @IBDesignable
 final class SpinnerView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet private weak var currencyLabel: UILabel!
+    @IBOutlet var view: UIView!
+    @IBOutlet private weak var contentView: UIControl!
+    @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var arrowIcon: UIImageView!
+    
+    weak var delegate: SpinnerViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -44,11 +51,15 @@ final class SpinnerView: UIView {
     private func setupNib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "SpinnerView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView //swiftlint:disable:this force_cast
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
         view.frame = self.bounds
         addSubview(view)
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.contentView = view
+        self.view = view
     }
-
+    
+    @IBAction private func didTapOnView(_ sender: Any) {
+        delegate?.didTapOnView()
+    }
+    
 }

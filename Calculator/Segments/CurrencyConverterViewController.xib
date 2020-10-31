@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyConverterViewController" customModule="Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="fromSpinnerView" destination="X1a-ko-1TR" id="NyJ-CL-af4"/>
+                <outlet property="toSpinnerView" destination="hoV-Ef-CAN" id="MaT-yw-72J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
