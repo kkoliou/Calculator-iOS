@@ -46,6 +46,12 @@ final class SpinnerView: UIView {
     
     private func setupView() {
         setupNib()
+        
+        let pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        textField.inputView = pickerView
+        textField.tintColor = .clear
     }
     
     private func setupNib() {
@@ -59,7 +65,25 @@ final class SpinnerView: UIView {
     }
     
     @IBAction private func didTapOnView(_ sender: Any) {
-        delegate?.didTapOnView()
+        
     }
     
+}
+
+extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        10
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        "aek"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.text = "aek"
+    }
 }
