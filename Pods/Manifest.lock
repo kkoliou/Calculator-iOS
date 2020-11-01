@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.3.0)
   - MathExpression (1.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - MathExpression (~> 1.2.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - MathExpression
 
 SPEC CHECKSUMS:
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
   MathExpression: 4384cff82c09443c72f4de75c39ae48d5d62d1f6
 
-PODFILE CHECKSUM: 21b606c9c72151bae075e286fded366b04f6a2f8
+PODFILE CHECKSUM: 1f80a7b5184becb52ccea0fabaf1722644255f13
 
 COCOAPODS: 1.9.3

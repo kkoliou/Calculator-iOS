@@ -7,6 +7,7 @@ target 'Calculator' do
 
   # Pods for Calculator
   pod 'MathExpression', '~>1.2.0'
+  pod 'Alamofire', '~> 5.2'
 
   target 'CalculatorTests' do
     inherit! :search_paths

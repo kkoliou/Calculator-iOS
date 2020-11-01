@@ -10,6 +10,7 @@
 		4103B4870E609328F26E9E05 /* Pods_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6892DFEC523DB0ACE6F53903 /* Pods_Calculator.framework */; };
 		750460850E1C6A123D541145 /* Pods_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8464FAF700242A4A38F608D0 /* Pods_CalculatorTests.framework */; };
 		98A647BFD131C6B931F2201F /* Pods_Calculator_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10CBADAA57F8A9A1D1A0D1FF /* Pods_Calculator_CalculatorUITests.framework */; };
+		BB369341254F058F0032A229 /* ApiGetRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB369340254F058F0032A229 /* ApiGetRatesResponse.swift */; };
 		BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE67251FCA3600E28120 /* CalculatorViewController.swift */; };
 		BB39EE6A251FCA3600E28120 /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */; };
 		BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */; };
@@ -52,6 +53,7 @@
 		8464FAF700242A4A38F608D0 /* Pods_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACBEE3562D1F38B3A328089 /* Pods-Calculator-CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator-CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calculator-CalculatorUITests/Pods-Calculator-CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE5A9EE6E09A3693DBE38347 /* Pods-CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-CalculatorTests/Pods-CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		BB369340254F058F0032A229 /* ApiGetRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetRatesResponse.swift; sourceTree = "<group>"; };
 		BB39EE67251FCA3600E28120 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		BB39EE68251FCA3600E28120 /* CalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		BB39EE6C251FCA7400E28120 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BB36933E254F056D0032A229 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				BB369340254F058F0032A229 /* ApiGetRatesResponse.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		BB39EE6B251FCA4400E28120 /* Segments */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +181,7 @@
 		BBACC60D24E9803F00F6245C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				BB36933E254F056D0032A229 /* Requests */,
 				BB4118D5254CA87200C54924 /* Custom Views */,
 				BB39EE6B251FCA4400E28120 /* Segments */,
 				BBACC60E24E9803F00F6245C /* AppDelegate.swift */,
@@ -447,6 +458,7 @@
 				BB39EE6E251FCA7400E28120 /* CurrencyConverterViewController.swift in Sources */,
 				BB39EE69251FCA3600E28120 /* CalculatorViewController.swift in Sources */,
 				BBACC61324E9803F00F6245C /* BaseViewController.swift in Sources */,
+				BB369341254F058F0032A229 /* ApiGetRatesResponse.swift in Sources */,
 				BBACC60F24E9803F00F6245C /* AppDelegate.swift in Sources */,
 				BB4118D7254CA8B800C54924 /* SpinnerView.swift in Sources */,
 				BBACC61124E9803F00F6245C /* SceneDelegate.swift in Sources */,
