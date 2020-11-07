@@ -14,6 +14,9 @@ final class CurrencyConverterViewController: UIViewController {
     @IBOutlet private weak var fromSpinnerView: SpinnerView!
     @IBOutlet private weak var toSpinnerView: SpinnerView!
     
+    private var rates = [String?: Double?]()
+    private var filteredRates = [String: Double]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -33,11 +36,42 @@ final class CurrencyConverterViewController: UIViewController {
             guard let data = response.data else { return }
             do {
                 let ratesResponse = try JSONDecoder().decode(ApiGetRatesResponse.self, from: data)
-//                let r = ratesResponse.rates?.AED ?? 0.0
+                guard let rates = ratesResponse.rates else { return }
+                let mirror = Mirror(reflecting: rates)
+                for child in mirror.children  {
+                    self.rates[child.label] = child.value as? Double
+                }
+                self.filterNilRatesValues()
             } catch {
                 print(error)
             }
         }
+    }
+    
+    private func filterNilRatesValues() {
+        for (key, value) in self.rates {
+            guard let key = key else { return }
+            guard let value = value else { return }
+            self.filteredRates[key] = value
+        }
+        self.breakIntoArrays()
+    }
+    
+    private func breakIntoArrays() {
+        var ratesKeys = [String]()
+        var ratesValues = [Double]()
+        
+        for (key, value) in self.filteredRates {
+            ratesKeys.append(key)
+            ratesValues.append(value)
+        }
+        
+        self.updateSpinners(keys: ratesKeys, values: ratesValues)
+    }
+    
+    private func updateSpinners(keys: [String], values: [Double]) {
+        self.fromSpinnerView.update(ratesKeys: keys, ratesValues: values)
+        self.toSpinnerView.update(ratesKeys: keys, ratesValues: values)
     }
 }
 

@@ -16,9 +16,12 @@ protocol SpinnerViewDelegate: class {
 final class SpinnerView: UIView {
 
     @IBOutlet var view: UIView!
-    @IBOutlet private weak var contentView: UIControl!
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var arrowIcon: UIImageView!
+    
+    private var keys = [String]()
+    private var values = [Double]()
     
     weak var delegate: SpinnerViewDelegate?
     
@@ -64,10 +67,10 @@ final class SpinnerView: UIView {
         self.view = view
     }
     
-    @IBAction private func didTapOnView(_ sender: Any) {
-        
+    func update(ratesKeys: [String], ratesValues: [Double]) {
+        self.keys = ratesKeys
+        self.values = ratesValues
     }
-    
 }
 
 extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -76,14 +79,14 @@ extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        10
+        self.keys.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        "aek"
+        return self.keys[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField.text = "aek"
+        textField.text = self.keys[row]
     }
 }
