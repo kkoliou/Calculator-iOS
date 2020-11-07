@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SpinnerViewDelegate: class {
-    func didTapOnView()
-}
-
 @IBDesignable
 final class SpinnerView: UIView {
 
@@ -22,8 +18,6 @@ final class SpinnerView: UIView {
     
     private var keys = [String]()
     private var values = [Double]()
-    
-    weak var delegate: SpinnerViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

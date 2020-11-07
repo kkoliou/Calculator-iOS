@@ -23,8 +23,6 @@ final class CurrencyConverterViewController: UIViewController {
     }
     
     private func setupView() {
-        fromSpinnerView.delegate = self
-        toSpinnerView.delegate = self
         getRates()
     }
     
@@ -70,13 +68,11 @@ final class CurrencyConverterViewController: UIViewController {
     }
     
     private func updateSpinners(keys: [String], values: [Double]) {
-        self.fromSpinnerView.update(ratesKeys: keys, ratesValues: values)
-        self.toSpinnerView.update(ratesKeys: keys, ratesValues: values)
-    }
-}
-
-extension CurrencyConverterViewController: SpinnerViewDelegate {
-    func didTapOnView() {
+        let sorted = zip(keys, values).sorted { $0.0 < $1.0 }
+        let sortedValues = sorted.map { $0.1 }
+        let sortedKeys = sorted.map { $0.0 }
         
+        self.fromSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
+        self.toSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
     }
 }
