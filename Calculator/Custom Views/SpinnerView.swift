@@ -47,7 +47,21 @@ final class SpinnerView: UIView {
         let pickerView = UIPickerView()
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .black
+        toolBar.sizeToFit()
+
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(donePressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelPressed))
+
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
         textField.inputView = pickerView
+        textField.inputAccessoryView = toolBar
         textField.tintColor = .clear
     }
     
@@ -59,6 +73,15 @@ final class SpinnerView: UIView {
         addSubview(view)
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view = view
+    }
+    
+    @objc private func donePressed() {
+        self.textField.endEditing(true)
+    }
+    
+    @objc private func cancelPressed() {
+        self.textField.endEditing(true)
+        self.textField.text = ""
     }
     
     func update(ratesKeys: [String], ratesValues: [Double]) {

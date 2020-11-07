@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class BaseViewController: UIViewController {
 
@@ -18,6 +19,19 @@ final class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        setupView()
+    }
+    
+    private func setupView() {
+        if !isConnectedToInternet() {
+            segmentedControl.isHidden = true
+            
+            let alert = UIAlertController(title: "No internet connection!",
+                                          message: "Currency conversion is not available.",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     
     private func updateView() {
@@ -58,5 +72,9 @@ final class BaseViewController: UIViewController {
         
         // Notify Child View Controller
         viewController.removeFromParent()
+    }
+    
+    private func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
     }
 }
