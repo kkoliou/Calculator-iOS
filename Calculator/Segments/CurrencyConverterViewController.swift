@@ -19,7 +19,7 @@ final class CurrencyConverterViewController: UIViewController {
     private var convCur: String?
     
     private var rates = [String?: Double?]()
-    private var filteredRates = [String: Double]()
+    private var currencies: [(currency: String, rate: Double)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,8 @@ final class CurrencyConverterViewController: UIViewController {
     }
     
     private func setupView() {
+        fromSpinnerView.delegate = self
+        toSpinnerView.delegate = self
         fromLabel.text = "0"
         toLabel.text = "0"
         getRates()
@@ -45,41 +47,22 @@ final class CurrencyConverterViewController: UIViewController {
                 for child in mirror.children  {
                     self.rates[child.label] = child.value as? Double
                 }
-                self.filterNilRatesValues()
+                self.updateSpinners()
             } catch {
                 print(error)
             }
         }
     }
     
-    private func filterNilRatesValues() {
+    private func updateSpinners() {
         for (key, value) in self.rates {
             guard let key = key else { return }
             guard let value = value else { return }
-            self.filteredRates[key] = value
+            self.currencies.append((key, value))
         }
-        self.breakIntoArrays()
-    }
-    
-    private func breakIntoArrays() {
-        var ratesKeys = [String]()
-        var ratesValues = [Double]()
-        
-        for (key, value) in self.filteredRates {
-            ratesKeys.append(key)
-            ratesValues.append(value)
-        }
-        
-        self.updateSpinners(keys: ratesKeys, values: ratesValues)
-    }
-    
-    private func updateSpinners(keys: [String], values: [Double]) {
-        let sorted = zip(keys, values).sorted { $0.0 < $1.0 }
-        let sortedValues = sorted.map { $0.1 }
-        let sortedKeys = sorted.map { $0.0 }
-        
-        self.fromSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
-        self.toSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
+        self.currencies = self.currencies.sorted { $0.0 < $1.0 }
+        self.fromSpinnerView.update(with: currencies)
+        self.toSpinnerView.update(with: currencies)
     }
     
     // MARK: - Button Actions
@@ -237,4 +220,10 @@ final class CurrencyConverterViewController: UIViewController {
         return !(input.count <= 10)
     }
 
+}
+
+extension CurrencyConverterViewController: SpinnerViewDelegate {
+    func didChooseCurrency() {
+        return
+    }
 }

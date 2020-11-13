@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SpinnerViewDelegate: class {
+    func didChooseCurrency()
+}
+
 @IBDesignable
 final class SpinnerView: UIView {
 
@@ -16,8 +20,9 @@ final class SpinnerView: UIView {
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var arrowIcon: UIImageView!
     
-    private var keys = [String]()
-    private var values = [Double]()
+    private var rates: [(currency: String, rate: Double)] = []
+    
+    weak var delegate: SpinnerViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -84,9 +89,8 @@ final class SpinnerView: UIView {
         self.textField.text = ""
     }
     
-    func update(ratesKeys: [String], ratesValues: [Double]) {
-        self.keys = ratesKeys
-        self.values = ratesValues
+    func update(with rates: [(currency: String, rate: Double)]) {
+        self.rates = rates
     }
 }
 
@@ -96,14 +100,15 @@ extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        self.keys.count
+        self.rates.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.keys[row]
+        return self.rates[row].currency
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField.text = self.keys[row]
+        textField.text = self.rates[row].currency
+        delegate?.didChooseCurrency()
     }
 }
