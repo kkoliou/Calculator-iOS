@@ -125,6 +125,10 @@ final class CalculatorViewController: UIViewController {
             return
         }
         
+        if hasMaxInputCount() {
+            return
+        }
+        
         var dotFound = false
         for char in input.reversed() {
             if char ==  "+" || char == "×" || char == "−" || char == "÷" {

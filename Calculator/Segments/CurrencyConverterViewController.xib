@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyConverterViewController" customModule="Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="fromLabel" destination="ScW-JL-VEC" id="CTj-TL-tzs"/>
                 <outlet property="fromSpinnerView" destination="X1a-ko-1TR" id="NyJ-CL-af4"/>
+                <outlet property="toLabel" destination="Q6B-D8-hsw" id="zAM-Ae-oB7"/>
                 <outlet property="toSpinnerView" destination="hoV-Ef-CAN" id="MaT-yw-72J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -59,15 +61,15 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="COQ-xX-agi">
                                             <rect key="frame" x="0.0" y="0.0" width="265" height="267"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-JL-VEC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-JL-VEC">
                                                     <rect key="frame" x="0.0" y="0.0" width="265" height="133.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6B-D8-hsw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6B-D8-hsw">
                                                     <rect key="frame" x="0.0" y="133.5" width="265" height="133.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -114,6 +116,9 @@
                                                             <state key="normal" title="7">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnSeven:" destination="-1" eventType="touchUpInside" id="vzK-w2-bS5"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPn-KR-hy7">
                                                             <rect key="frame" x="94" y="0.0" width="93.5" height="100"/>
@@ -121,6 +126,9 @@
                                                             <state key="normal" title="8">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnEight:" destination="-1" eventType="touchUpInside" id="K2D-ra-Bgu"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-Fc-oK5">
                                                             <rect key="frame" x="187.5" y="0.0" width="94" height="100"/>
@@ -128,6 +136,9 @@
                                                             <state key="normal" title="9">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnNine:" destination="-1" eventType="touchUpInside" id="LpG-uI-pB6"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -140,6 +151,9 @@
                                                             <state key="normal" title="4">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnFour:" destination="-1" eventType="touchUpInside" id="ef7-yI-BYW"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmW-jZ-ZF2">
                                                             <rect key="frame" x="94" y="0.0" width="93.5" height="100"/>
@@ -147,6 +161,9 @@
                                                             <state key="normal" title="5">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnFive:" destination="-1" eventType="touchUpInside" id="Jhc-QF-FtE"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipd-t9-s45">
                                                             <rect key="frame" x="187.5" y="0.0" width="94" height="100"/>
@@ -154,6 +171,9 @@
                                                             <state key="normal" title="6">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnSix:" destination="-1" eventType="touchUpInside" id="qIX-th-p1s"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -166,6 +186,9 @@
                                                             <state key="normal" title="1">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnOne:" destination="-1" eventType="touchUpInside" id="N2A-gL-XH9"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPk-rx-qtk">
                                                             <rect key="frame" x="94" y="0.0" width="93.5" height="100"/>
@@ -173,6 +196,9 @@
                                                             <state key="normal" title="2">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnTwo:" destination="-1" eventType="touchUpInside" id="aRI-Yx-1Ax"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcl-Pl-PHp">
                                                             <rect key="frame" x="187.5" y="0.0" width="94" height="100"/>
@@ -180,6 +206,9 @@
                                                             <state key="normal" title="3">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnThree:" destination="-1" eventType="touchUpInside" id="nGe-TS-gS1"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -195,6 +224,9 @@
                                                             <state key="normal" title="0">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnZero:" destination="-1" eventType="touchUpInside" id="Ixf-ri-X2a"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inz-wo-SFn">
                                                             <rect key="frame" x="187.5" y="0.0" width="94" height="100"/>
@@ -202,6 +234,9 @@
                                                             <state key="normal" title=".">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOnDot:" destination="-1" eventType="touchUpInside" id="3XU-3P-Kxr"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -228,8 +263,11 @@
                                                     <state key="normal" title="C">
                                                         <color key="titleColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapOnClearAll:" destination="-1" eventType="touchUpInside" id="PMd-DS-oRY"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-dr-mM9">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-dr-mM9" userLabel="Del">
                                                     <rect key="frame" x="0.0" y="200" width="93.5" height="200"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <color key="tintColor" red="0.44582943390000002" green="0.61649935229999997" blue="0.3899718103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -237,6 +275,9 @@
                                                         <imageReference key="image" image="delete.left.fill" catalog="system" symbolScale="large"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapOnDelete:" destination="-1" eventType="touchUpInside" id="6pV-Hp-sW5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>

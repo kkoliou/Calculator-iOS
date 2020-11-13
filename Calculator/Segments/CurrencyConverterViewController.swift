@@ -13,6 +13,10 @@ final class CurrencyConverterViewController: UIViewController {
 
     @IBOutlet private weak var fromSpinnerView: SpinnerView!
     @IBOutlet private weak var toSpinnerView: SpinnerView!
+    @IBOutlet private weak var fromLabel: UILabel!
+    @IBOutlet private weak var toLabel: UILabel!
+    private var baseCur: String?
+    private var convCur: String?
     
     private var rates = [String?: Double?]()
     private var filteredRates = [String: Double]()
@@ -23,6 +27,8 @@ final class CurrencyConverterViewController: UIViewController {
     }
     
     private func setupView() {
+        fromLabel.text = "0"
+        toLabel.text = "0"
         getRates()
     }
     
@@ -75,4 +81,160 @@ final class CurrencyConverterViewController: UIViewController {
         self.fromSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
         self.toSpinnerView.update(ratesKeys: sortedKeys, ratesValues: sortedValues)
     }
+    
+    // MARK: - Button Actions
+    
+    @IBAction private func didTapOnClearAll(_ sender: Any) {
+        fromLabel.text = "0"
+    }
+    
+    @IBAction private func didTapOnDelete(_ sender: Any) {
+        guard var input = fromLabel.text else { return }
+        
+        if input.count > 1 {
+            input = String(input.dropLast())
+            fromLabel.text = input
+        } else {
+            fromLabel.text? = "0"
+        }
+    }
+    
+    @IBAction private func didTapOnDot(_ sender: Any) {
+        guard var input = fromLabel.text else { return }
+        
+        if !input[input.index(input.endIndex, offsetBy: -1)].isNumber {  //if previous char is operator, then dot won't be added
+            return
+        }
+        
+        if hasMaxInputCount() {
+            return
+        }
+        
+        var dotFound = false
+        for char in input.reversed() {
+            if char == "." {
+                dotFound = true
+                break
+            }
+        }
+        
+        if !dotFound {
+            input += "."
+            fromLabel.text = input
+        }
+    }
+    
+    @IBAction private func didTapOnZero(_ sender: Any) {
+        guard var input = fromLabel.text else { return }
+        
+        if hasMaxInputCount() {
+            return
+        }
+        
+        if input != "0" && input.count >= 1 {
+            input += "0"
+            fromLabel.text = input
+        } else if input.count == 0 {
+            fromLabel.text = "0"
+        }
+    }
+    
+    @IBAction private func didTapOnOne(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "1"
+    }
+    
+    @IBAction private func didTapOnTwo(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "2"
+    }
+    
+    @IBAction private func didTapOnThree(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "3"
+    }
+    
+    @IBAction private func didTapOnFour(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "4"
+    }
+    
+    @IBAction private func didTapOnFive(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "5"
+    }
+    
+    @IBAction private func didTapOnSix(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "6"
+    }
+    
+    @IBAction private func didTapOnSeven(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "7"
+    }
+    
+    @IBAction private func didTapOnEight(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "8"
+    }
+    
+    @IBAction private func didTapOnNine(_ sender: Any) {
+        if hasMaxInputCount() {
+            return
+        }
+        
+        let str = startsWithZero()
+        fromLabel.text = str + "9"
+    }
+    
+    private func startsWithZero() -> String {  //if input is 0, pressing 1, 0 will be replaced by 1
+        guard var input = fromLabel.text else { return "" }
+        
+        if input.count == 1 {
+            if input[input.index(input.startIndex, offsetBy: 0)] == "0" {
+                input = ""
+            }
+        }
+        return input
+    }
+    
+    private func hasMaxInputCount() -> Bool {
+        guard let input = fromLabel.text else { return true }
+        
+        return !(input.count <= 10)
+    }
+
 }
