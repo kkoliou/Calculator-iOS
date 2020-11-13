@@ -8,8 +8,13 @@
 
 import UIKit
 
+enum SpinnerType {
+    case from
+    case to
+}
+
 protocol SpinnerViewDelegate: class {
-    func didChooseCurrency()
+    func didChooseCurrency(rate: Double, type: SpinnerType)
 }
 
 @IBDesignable
@@ -21,6 +26,7 @@ final class SpinnerView: UIView {
     @IBOutlet private weak var arrowIcon: UIImageView!
     
     private var rates: [(currency: String, rate: Double)] = []
+    private var type: SpinnerType?
     
     weak var delegate: SpinnerViewDelegate?
     
@@ -71,7 +77,7 @@ final class SpinnerView: UIView {
     }
     
     private func setupNib() {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle(for: Swift.type(of: self))
         let nib = UINib(nibName: "SpinnerView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
         view.frame = self.bounds
@@ -89,8 +95,9 @@ final class SpinnerView: UIView {
         self.textField.text = ""
     }
     
-    func update(with rates: [(currency: String, rate: Double)]) {
+    func update(with rates: [(currency: String, rate: Double)], type: SpinnerType) {
         self.rates = rates
+        self.type = type
     }
 }
 
@@ -108,7 +115,8 @@ extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let type = self.type else { return }
         textField.text = self.rates[row].currency
-        delegate?.didChooseCurrency()
+        delegate?.didChooseCurrency(rate: self.rates[row].rate, type: type)
     }
 }

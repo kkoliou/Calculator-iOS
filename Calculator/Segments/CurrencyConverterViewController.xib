@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyConverterViewController" customModule="Calculator" customModuleProvider="target">
             <connections>
-                <outlet property="fromLabel" destination="ScW-JL-VEC" id="CTj-TL-tzs"/>
                 <outlet property="fromSpinnerView" destination="X1a-ko-1TR" id="NyJ-CL-af4"/>
-                <outlet property="toLabel" destination="Q6B-D8-hsw" id="zAM-Ae-oB7"/>
+                <outlet property="fromTextField" destination="mZR-BB-tsY" id="CZY-ml-qAk"/>
                 <outlet property="toSpinnerView" destination="hoV-Ef-CAN" id="MaT-yw-72J"/>
+                <outlet property="toTextField" destination="7Q1-WD-dqI" id="mBx-tU-cgi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,18 +61,16 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="COQ-xX-agi">
                                             <rect key="frame" x="0.0" y="0.0" width="265" height="267"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-JL-VEC">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-BB-tsY">
                                                     <rect key="frame" x="0.0" y="0.0" width="265" height="133.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6B-D8-hsw">
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Q1-WD-dqI">
                                                     <rect key="frame" x="0.0" y="133.5" width="265" height="133.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </stackView>
                                     </subviews>
