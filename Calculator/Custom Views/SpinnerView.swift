@@ -14,7 +14,7 @@ enum SpinnerType {
 }
 
 protocol SpinnerViewDelegate: class {
-    func didChooseCurrency(rate: Double, type: SpinnerType)
+    func didChooseCurrency(rate: (String, Double), type: SpinnerType)
 }
 
 @IBDesignable
@@ -117,6 +117,6 @@ extension SpinnerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let type = self.type else { return }
         textField.text = self.rates[row].currency
-        delegate?.didChooseCurrency(rate: self.rates[row].rate, type: type)
+        delegate?.didChooseCurrency(rate: self.rates[row], type: type)
     }
 }

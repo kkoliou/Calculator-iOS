@@ -15,8 +15,8 @@ final class CurrencyConverterViewController: UIViewController {
     @IBOutlet private weak var toSpinnerView: SpinnerView!
     @IBOutlet private weak var fromTextField: UITextField!
     @IBOutlet private weak var toTextField: UITextField!
-    private var baseCur: Double?
-    private var convCur: Double?
+    private var baseCur: (currency: String?, rate: Double?)
+    private var convCur: (currency: String?, rate: Double?)
     
     private var rates = [String?: Double?]()
     private var currencies: [(currency: String, rate: Double)] = []
@@ -30,7 +30,7 @@ final class CurrencyConverterViewController: UIViewController {
         fromSpinnerView.delegate = self
         toSpinnerView.delegate = self
         fromTextField.text = "0"
-        fromTextField.text = "0"
+        toTextField.text = "0"
         getRates()
     }
     
@@ -69,6 +69,7 @@ final class CurrencyConverterViewController: UIViewController {
     
     @IBAction private func didTapOnClearAll(_ sender: Any) {
         fromTextField.text = "0"
+        toTextField.text = "0"
     }
     
     @IBAction private func didTapOnDelete(_ sender: Any) {
@@ -80,6 +81,7 @@ final class CurrencyConverterViewController: UIViewController {
         } else {
             fromTextField.text = "0"
         }
+        updateConvesion()
     }
     
     @IBAction private func didTapOnDot(_ sender: Any) {
@@ -105,6 +107,7 @@ final class CurrencyConverterViewController: UIViewController {
             input += "."
             fromTextField.text = input
         }
+        updateConvesion()
     }
     
     @IBAction private func didTapOnZero(_ sender: Any) {
@@ -120,6 +123,7 @@ final class CurrencyConverterViewController: UIViewController {
         } else if input.count == 0 {
             fromTextField.text = "0"
         }
+        updateConvesion()
     }
     
     @IBAction private func didTapOnOne(_ sender: Any) {
@@ -129,6 +133,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "1"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnTwo(_ sender: Any) {
@@ -138,6 +143,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "2"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnThree(_ sender: Any) {
@@ -147,6 +153,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "3"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnFour(_ sender: Any) {
@@ -156,6 +163,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "4"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnFive(_ sender: Any) {
@@ -165,6 +173,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "5"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnSix(_ sender: Any) {
@@ -174,6 +183,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "6"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnSeven(_ sender: Any) {
@@ -183,6 +193,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "7"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnEight(_ sender: Any) {
@@ -192,6 +203,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "8"
+        updateConvesion()
     }
     
     @IBAction private func didTapOnNine(_ sender: Any) {
@@ -201,6 +213,7 @@ final class CurrencyConverterViewController: UIViewController {
         
         let str = startsWithZero()
         fromTextField.text = str + "9"
+        updateConvesion()
     }
     
     private func startsWithZero() -> String {  //if input is 0, pressing 1, 0 will be replaced by 1
@@ -219,13 +232,31 @@ final class CurrencyConverterViewController: UIViewController {
         
         return !(input.count <= 10)
     }
-
+    
+    private func updateConvesion() {
+        guard let amountToConv = self.fromTextField.text else { return }
+        guard let baseCurRate = self.baseCur.rate else { return }
+        guard let convCurRate = self.convCur.rate else { return }
+    
+        let amountToConvDouble = Double(amountToConv) ?? 0.0
+        
+//        guard let convRate = self.convCur.rate else { return }
+        
+        if self.baseCur.currency != "EUR" {
+            let amountToEur = amountToConvDouble * 1 / baseCurRate
+            let converted = amountToEur * convCurRate
+            toTextField.text = String(converted)
+        } else {
+            let converted  = amountToConvDouble * convCurRate
+            toTextField.text = String(converted)
+        }
+    }
 }
 
 // MARK: - Extensions
 
 extension CurrencyConverterViewController: SpinnerViewDelegate {
-    func didChooseCurrency(rate: Double, type: SpinnerType) {
+    func didChooseCurrency(rate: (String, Double), type: SpinnerType) {
         switch type {
         case .from:
             self.baseCur = rate
