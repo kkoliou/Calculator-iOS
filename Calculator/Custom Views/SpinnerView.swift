@@ -15,6 +15,7 @@ enum SpinnerType {
 
 protocol SpinnerViewDelegate: class {
     func didChooseCurrency(rate: (String, Double), type: SpinnerType)
+    func didCancelCurrency()
 }
 
 @IBDesignable
@@ -93,6 +94,7 @@ final class SpinnerView: UIView {
     @objc private func cancelPressed() {
         self.textField.endEditing(true)
         self.textField.text = ""
+        delegate?.didCancelCurrency()
     }
     
     func update(with rates: [(currency: String, rate: Double)], type: SpinnerType) {

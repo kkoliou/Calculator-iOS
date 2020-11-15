@@ -263,5 +263,12 @@ extension CurrencyConverterViewController: SpinnerViewDelegate {
         case .to:
             self.convCur = rate
         }
+        self.fromTextField.text = "0"
+        self.toTextField.text = "0"
+    }
+    
+    func didCancelCurrency() {
+        self.fromTextField.text = "0"
+        self.toTextField.text = "0"
     }
 }
